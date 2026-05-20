@@ -3,7 +3,7 @@ import requests
 import uuid
 from datetime import datetime
 
-API_URL = "http://localhost:8000"
+API_URL = "https://subasinikarian-empathetic-rag-backend.hf.space"
 
 st.set_page_config(
     page_title="EmpathAI — Workplace Assistant",

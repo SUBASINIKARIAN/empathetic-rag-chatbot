@@ -26,6 +26,11 @@ class FeedbackRequest(BaseModel):
     rating: int  # 1 = thumbs up, 0 = thumbs down
 
 
+@app.get("/")
+async def root():
+    return {"status": "EmpathAI backend is running", "endpoints": ["/chat", "/feedback", "/health"]}
+
+
 @app.post("/chat")
 async def chat_endpoint(req: ChatRequest):
     if req.session_id not in sessions:
