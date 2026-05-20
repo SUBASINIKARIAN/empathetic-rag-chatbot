@@ -1,4 +1,3 @@
-import os
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -6,7 +5,7 @@ load_dotenv()
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from claude_client import chat
+from gemini_client import chat
 
 app = FastAPI(title="Empathetic RAG Chatbot API")
 

@@ -1,14 +1,15 @@
-import anthropic
-import os
+import google.generativeai as genai
+from key_manager import get_secret
 
-_client = None
+_model = None
 
 
-def get_client() -> anthropic.Anthropic:
-    global _client
-    if _client is None:
-        _client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
-    return _client
+def get_model():
+    global _model
+    if _model is None:
+        genai.configure(api_key=get_secret("GEMINI_API_KEY"))
+        _model = genai.GenerativeModel("gemini-1.5-flash")
+    return _model
 
 
 def rewrite_query(original_query: str, conversation_history: list[dict]) -> str:
@@ -20,10 +21,5 @@ def rewrite_query(original_query: str, conversation_history: list[dict]) -> str:
         f"Rewrite the user's latest query to be more specific and self-contained "
         f"for document search:\nQuery: {original_query}\n\nRewritten query:"
     )
-
-    response = get_client().messages.create(
-        model="claude-sonnet-4-20250514",
-        max_tokens=100,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    return response.content[0].text.strip()
+    response = get_model().generate_content(prompt)
+    return response.text.strip()

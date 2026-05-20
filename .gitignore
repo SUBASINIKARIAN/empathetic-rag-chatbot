@@ -1,4 +1,6 @@
 .env
+.env.encrypted
+.secret.key
 __pycache__/
 *.pyc
 *.pyo
