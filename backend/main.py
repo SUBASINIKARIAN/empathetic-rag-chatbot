@@ -1,7 +1,9 @@
 from datetime import datetime
+from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv()
+# loads .env locally; no-op in production where env vars are set by the host
+load_dotenv(Path(__file__).parent.parent / ".env")
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel

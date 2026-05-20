@@ -1,15 +1,15 @@
-import google.generativeai as genai
+from google import genai
 from key_manager import get_secret
 
-_model = None
+MODEL = "gemini-flash-latest"
+_client: genai.Client | None = None
 
 
-def get_model():
-    global _model
-    if _model is None:
-        genai.configure(api_key=get_secret("GEMINI_API_KEY"))
-        _model = genai.GenerativeModel("gemini-1.5-flash")
-    return _model
+def get_client() -> genai.Client:
+    global _client
+    if _client is None:
+        _client = genai.Client(api_key=get_secret("GEMINI_API_KEY"))
+    return _client
 
 
 def rewrite_query(original_query: str, conversation_history: list[dict]) -> str:
@@ -21,5 +21,5 @@ def rewrite_query(original_query: str, conversation_history: list[dict]) -> str:
         f"Rewrite the user's latest query to be more specific and self-contained "
         f"for document search:\nQuery: {original_query}\n\nRewritten query:"
     )
-    response = get_model().generate_content(prompt)
+    response = get_client().models.generate_content(model=MODEL, contents=prompt)
     return response.text.strip()

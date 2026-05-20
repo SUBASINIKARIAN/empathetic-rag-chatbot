@@ -7,7 +7,7 @@ load_dotenv()
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", "backend"))
 
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from pinecone import Pinecone, ServerlessSpec
 from embedder import embed
 
