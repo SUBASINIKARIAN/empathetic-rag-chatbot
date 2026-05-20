@@ -1,0 +1,32 @@
+[
+  {
+    "id": "doc_001",
+    "title": "Refund Policy",
+    "content": "Our refund policy allows customers to request a full refund within 30 days of purchase. To initiate a refund, contact support@company.com with your order ID. Refunds are processed within 5-7 business days. Digital products are non-refundable after download.",
+    "category": "policy"
+  },
+  {
+    "id": "doc_002",
+    "title": "Account Setup Guide",
+    "content": "To set up your account: 1) Go to signup page, 2) Enter your email and create a password, 3) Verify your email via the confirmation link, 4) Complete your profile. If you don't receive the confirmation email, check your spam folder or contact support.",
+    "category": "guide"
+  },
+  {
+    "id": "doc_003",
+    "title": "Billing FAQ",
+    "content": "We accept Visa, MasterCard, American Express, and PayPal. Billing occurs on the same date each month. You can update your payment method in Account Settings > Billing. Invoices are emailed automatically after each payment.",
+    "category": "faq"
+  },
+  {
+    "id": "doc_004",
+    "title": "Technical Support Hours",
+    "content": "Technical support is available Monday to Friday, 9 AM to 6 PM EST. For urgent issues outside business hours, use our emergency ticket system. Average response time is under 2 hours during business hours.",
+    "category": "support"
+  },
+  {
+    "id": "doc_005",
+    "title": "Data Privacy and Security",
+    "content": "All user data is encrypted at rest using AES-256 and in transit using TLS 1.3. We are GDPR and SOC 2 Type II compliant. You can request a copy or deletion of your data at any time via Settings > Privacy.",
+    "category": "security"
+  }
+]
